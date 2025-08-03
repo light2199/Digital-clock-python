@@ -17,11 +17,7 @@ The clock displays the current time in hours, minutes, and seconds, updating eve
 
 ---
 
-## 🖼️ Preview
-(Add a screenshot of your clock here if you have one, e.g.:)  
-![Digital Clock Screenshot](clockimage.jpg)
 
----
 
 ## ⚙️ Requirements
 - Python 3.x
