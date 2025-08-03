@@ -1,63 +1,33 @@
 # Digital-clock-python
 
-from PyQt5.QtWidgets import  QWidget,QApplication,QLabel,QVBoxLayout
 
-import sys
+# 🕒 PyQt5 Digital Clock
 
-from PyQt5.QtCore import Qt, QTimer, QTime
+A simple **Digital Clock** application built using **Python (PyQt5)**.  
+The clock displays the current time in hours, minutes, and seconds, updating every second.  
 
-from PyQt5.QtGui  import QIcon
+---
 
+## 📌 Features
+- Displays current time in real-time.
+- Uses a sleek **digital design** with green text on a black background.
+- Updates every second using a **QTimer**.
+- Customizable styles and font size.
+- Lightweight and easy to run.
 
-class DigitalClock(QWidget):
-    def __init__(self):
-        super().__init__()
+---
 
-        self.timelabel=QLabel("12:00:00",self)
-        self.timer=QTimer(self)
-        self.setWindowIcon(QIcon("clockimah=ge.jpg"))
-        self.initUI()
+## 🖼️ Preview
+(Add a screenshot of your clock here if you have one, e.g.:)  
+![Digital Clock Screenshot](clockimage.jpg)
 
-    def initUI(self):
-        self.setWindowTitle("DIGITAL CLOCK")
-        self.setGeometry(500,500,400,200)
+---
 
+## ⚙️ Requirements
+- Python 3.x
+- PyQt5
 
-        vbox=QVBoxLayout()
-        vbox.addWidget(self.timelabel)
-        self.setLayout(vbox)
+Install dependencies with:
+```bash
+pip install PyQt5
 
-        self.timelabel.setAlignment(Qt.AlignCenter)
-
-        self.timelabel.setStyleSheet("font-size:70px;"
-                                    "font-family:Arial;"
-                                    "color:Green;")
-        self.setStyleSheet("background-color: black;")
-
-        self.update_time()
-
-
-        self.timer.timeout.connect(self.update_time)
-        self.timer.start(1000)
-
-        
-
-
-
-    def update_time(self):
-        current_time=QTime.currentTime().toString("hh:mm:ss AP")
-        self.timelabel.setText(current_time)
-
-        
-
-
-
-
-
-
-
-if __name__=="__main__":
-    app=QApplication([])
-    digital_clock=DigitalClock()
-    digital_clock.show()
-    sys.exit(app.exec_())
